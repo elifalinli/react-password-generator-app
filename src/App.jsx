@@ -1,6 +1,8 @@
 import React from "react";
 import { toast } from "react-hot-toast";
 import { FaClipboard } from "react-icons/fa";
+import Field from "./Field";
+import Header from "./Header";
 
 class App extends React.Component {
   constructor(props) {
@@ -93,7 +95,10 @@ class App extends React.Component {
     const { values, result } = this.state;
 
     return (
-      <section>
+      <section> 
+        <div className="header">
+           <Header/>
+        </div>
         <div className="container">
           <form id="pg-form" onSubmit={this.handleOnSubmit}>
             <div className="result">
@@ -108,60 +113,7 @@ class App extends React.Component {
                 <FaClipboard></FaClipboard>
               </div>
             </div>
-            <div>
-              <div className="field">
-                <label htmlFor="length">Length</label>
-                <input
-                  type="number"
-                  id="length"
-                  min={6}
-                  max={12}
-                  name="length"
-                  value={values.length}
-                  onChange={this.handleInputChange}
-                />
-              </div>
-              <div className="field">
-                <label htmlFor="uppercase">Uppercase</label>
-                <input
-                  type="checkbox"
-                  id="uppercase"
-                  name="uppercase"
-                  checked={values.uppercase}
-                  onChange={this.handleInputChange}
-                />
-              </div>
-              <div className="field">
-                <label htmlFor="lowercase">Lowercase</label>
-                <input
-                  type="checkbox"
-                  id="lowercase"
-                  name="lowercase"
-                  checked={values.lowercase}
-                  onChange={this.handleInputChange}
-                />
-              </div>
-              <div className="field">
-                <label htmlFor="number">Number</label>
-                <input
-                  type="checkbox"
-                  id="number"
-                  name="number"
-                  checked={values.number}
-                  onChange={this.handleInputChange}
-                />
-              </div>
-              <div className="field">
-                <label htmlFor="symbol">Symbol</label>
-                <input
-                  type="checkbox"
-                  id="symbol"
-                  name="symbol"
-                  checked={values.symbol}
-                  onChange={this.handleInputChange}
-                />
-              </div>
-            </div>
+            <Field values={values} handleInputChange={this.handleInputChange}/>
             <button type="submit">Generate me a password!</button>
           </form>
         </div>
