@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;1,100;1,200&display=swap');
 * {
   padding: 0;
   margin: 0;
@@ -7,24 +7,33 @@
 }
 
 body {
-  background-image: url("https://img.freepik.com/free-vector/green-nebula_91008-240.jpg?w=1380&t=st=1692900598~exp=1692901198~hmac=969da4d4ad9b1ab1b78d9406bfc768b68b873c18e8b4de30a0f055ac7303fd5b");
+  background-image: url("https://images.pexels.com/photos/547114/pexels-photo-547114.jpeg");
   background-position: center ;
   font-size: 18px;
-  font-family: 'Raleway', sans-serif;
   color: rgb(212, 212, 212);
 }
 section {
   min-height: 100vh;
   width: 100%;
   display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 100px 0;
+}
+.header {
+  display: flex;
+  width: 100%;
+  padding-bottom: 50px;
   align-items: center;
   justify-content: center;
-  padding: 100px 0;
+  color: rgb(74, 71, 65);
+  font-size:xx-large;
+  font-weight: 600;
 }
 .container {
   padding: 30px;
-  background-image: url("https://img.freepik.com/free-photo/abstract-grunge-decorative-relief-navy-blue-stucco-wall-texture-wide-angle-rough-colored-background_1258-28311.jpg?w=1380&t=st=1692900702~exp=1692901302~hmac=5cdc2d65f0f24a8bb9ff0e5c5c19a342def3013da6f557295236ad87e930e659");
-  background-position: center;
+  background-image: url("https://images.pexels.com/photos/1723637/pexels-photo-1723637.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2");
   border-radius: 8px;
   box-shadow: 0px 0px 20px #00000011;
   width: 90%;
@@ -59,7 +68,7 @@ form {
   transform: translateY(-50%);
   font-size: 25px;
   cursor: pointer;
-  background-color: royalblue;
+  background-color: rgb(118, 116, 112);
   color: white;
   display: flex;
   align-items: center;
@@ -73,7 +82,7 @@ form {
   padding: 10px;
   padding-right: 0px;
   font-size: 16px;
-  background-color: rgb(241, 241, 241);
+  background-color: rgb(146, 166, 189);
   border-radius: 4px;
 }
 .field {
@@ -85,6 +94,7 @@ form {
   align-items: center;
   align-items: center;
   padding-right: 10px;
+  font-style: rgb(102,132,169);;
   transition: 0.3s ease background-color;
 }
 .field:first-of-type {
@@ -96,7 +106,7 @@ form {
 .field label {
   width: 100%;
   padding: 10px;
-  color: #F5F5F5;
+  color: rgb(163,169,204);
   cursor: pointer;
 }
 .field input {
@@ -107,10 +117,9 @@ button[type='submit'] {
   display: inline-block;
   width: 100%;
   border: royalblue;
-  outline: royalblue;
   height: 50px;
-  background-color: rgb(246, 247, 249);
-  color: royalblue;
+  background-color: rgb(213, 229, 240);
+  color: rgb(93, 88, 77);
   font-size: 18px;
   cursor: pointer;
   margin-top: 30px;
