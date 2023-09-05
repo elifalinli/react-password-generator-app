@@ -5,9 +5,10 @@ class Field extends React.Component {
         super(props);
     }
     render() { 
+      const valueLength = this.props.values ? this.props.values.length : 0
         return(
         <div className="container">
-              <div className="field">
+              <div className="field" >
                 <label htmlFor="length">Length</label>
                 <input
                   type="number"
@@ -15,7 +16,7 @@ class Field extends React.Component {
                   min={6}
                   max={12}
                   name="length"
-                  value={this.props.values.length}
+                  value={valueLength}
                   onChange={this.props.handleInputChange}
                 />
               </div>
