@@ -16,31 +16,34 @@ class App extends React.Component {
         symbol: false,
       },
       result: "",
+      fieldsArray: []
     };
 
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleOnSubmit = this.handleOnSubmit.bind(this);
     this.handleClipboard = this.handleClipboard.bind(this);
   }
+ 
   handleOnSubmit = (e) => {
     e.preventDefault();
-    let generatedPassword = "";
-    const checkedFields = this.fieldsArray.filter(({ field }) => field);
-
-    for (let i = 0; i < this.state.values.length; i++) {
-      const index = Math.floor(Math.random() * checkedFields.length);
-      const letter = checkedFields[index].getChar();
-      if (letter) {
-        generatedPassword += letter;
-      }
-      if (generatedPassword) {
-        this.setState({
-          result: generatedPassword,
-        });
-      }
-    }
+    const { values } = this.state;
+  
+    const charSets = [];
+    if (values.uppercase) charSets.push(() => this.getRandomChar(65, 90));
+    if (values.lowercase) charSets.push(() => this.getRandomChar(97, 122));
+    if (values.number) charSets.push(() => this.getRandomChar(48, 57));
+    if (values.symbol) charSets.push(() => this.getSymbol());
+  
+    const generatedPassword = Array.from({ length: values.length }, () => {
+      const randomCharSet = charSets[Math.floor(Math.random() * charSets.length)];
+      return randomCharSet();
+    }).join('');
+  
+    this.setState({
+      result: generatedPassword,
+    });
   };
-
+  
   handleClipboard = async () => {
     if (this.state.result) {
       await navigator.clipboard.writeText(this.state.result);
@@ -109,7 +112,7 @@ class App extends React.Component {
                 readOnly
                 value={result}
               />
-              <div className="clipboard" onClick={this.handleClipboard}>
+              <div className="clipboard" onClick={this.handleClipboard} data-testid="clipboard">
                 <FaClipboard></FaClipboard>
               </div>
             </div>
